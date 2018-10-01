@@ -1,7 +1,7 @@
 from socket import *
 import time
 
-serverName = 'SpiritBreaker'
+serverName = ("LocalHost") #gets the name of the local host
 serverPort = 12000
 clientSocket = socket(AF_INET, SOCK_DGRAM)
 clientSocket.settimeout(1); # sets the timeout to 1 second
@@ -18,11 +18,11 @@ while True:
         elapsed = time.time() - start
         round_trip_time += time.time() - elapsed #elapsed time
         print (modifiedMessage.decode())
-        print "Round Trip Time is:" + str(elapsed) + " seconds"
+        print ("Round Trip Time is:" + str(elapsed) + " seconds")
     except socket.timeout: #if no reply within 1 second
         print (modifiedMessage.decode())
         print ('Request timed out')
 
-    if sequence_number > 10
+    if sequence_number > 10:
         break
 clientSocket.close()
