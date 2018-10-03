@@ -10,7 +10,7 @@ sequence_number = 1
 packets_lost = 0
 smallRTT = 100
 largeRTT = 0
-averageRTT = 0
+avergRTT = 0
 ################################################################################
 while True:
     start= time.time()
@@ -22,7 +22,7 @@ while True:
         round_trip_times.append(time.time() - elapsed) #elapsed time
         print (modifiedMessage.decode())
         print ("Round Trip Time is:" + str(round(elapsed,3)) + " seconds")
-    except socket.timeout: #if no reply within 1 second
+    except timeout: #if no reply within 1 second
         print (message)
         print ("Request timed out")
         packets_lost = packets_lost + 1
@@ -36,13 +36,13 @@ for x in round_trip_times:
         largeRTT = x
     if x < smallRTT:
         smallRTT = x
-    averageRTT = AverageRTT + x
+    avergRTT = avergRTT + x
 ################################################################################
-averageRTT = averageRTT / len(round_trip_times)
+avergRTT = avergRTT / len(round_trip_times)
 print ("Maximum RTT: " + largeRTT + " seconds")
 print ("Minimum RTT: " + smallRTT + " seconds")
-print ("Average RTT: " + averageRTT + " seconds")
-if packets_lost = 0:
+print ("Average RTT: " + avergRTT + " seconds")
+if packets_lost == 0:
     print ("Packet loss percentage: 0%")
 else:
     print ("Packet loss percentage: " + (packets_lost/10) * 100 + "%")
