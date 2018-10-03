@@ -42,5 +42,8 @@ averageRTT = averageRTT / len(round_trip_times)
 print ("Maximum RTT: " + largeRTT + " seconds")
 print ("Minimum RTT: " + smallRTT + " seconds")
 print ("Average RTT: " + averageRTT + " seconds")
-print ("Packet loss percentage: " + (packets_lost/10) * 100 + "%")
+if packets_lost = 0:
+    print ("Packet loss percentage: 0%")
+else:
+    print ("Packet loss percentage: " + (packets_lost/10) * 100 + "%")
 clientSocket.close()
